@@ -1,0 +1,3 @@
+com\microservicio\config\SwaggerConfig.class
+com\microservicio\controller\ContactController.class
+ContactApplication.class

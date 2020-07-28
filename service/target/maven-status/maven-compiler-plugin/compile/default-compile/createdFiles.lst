@@ -1,0 +1,3 @@
+com\microservicio\dto\ContactDto.class
+com\microservicio\service\ContactService.class
+com\microservicio\service\ContactServiceImpl.class
