@@ -18,15 +18,17 @@ import static springfox.documentation.builders.PathSelectors.regex;
 public class SwaggerConfig {
 	   @Bean	
 	    public Docket api() { 
-	        return new Docket(DocumentationType.SWAGGER_2)  
-	          .groupName("com.microservicio")		
-	          .apiInfo(apiInfo())	
-	          .select()                                  
-	          .apis(RequestHandlerSelectors.basePackage("com.microserviciojava"))
-	          .paths(PathSelectors.any())                          
-	          .build();                                              
+		   return new Docket(DocumentationType.SWAGGER_2)
+		    		  .groupName("microservicio")
+		              .apiInfo(apiInfo())
+		              .select()
+		                  .apis(RequestHandlerSelectors.withClassAnnotation(Api.class))
+		                  .paths(PathSelectors.any())
+		                  .build()
+		              .pathMapping("/")
+		              .genericModelSubstitutes(ResponseEntity.class)
+		              .useDefaultResponseMessages(false);                               
 	    }
-
 
 	    private ApiInfo apiInfo() {
 	        return new ApiInfoBuilder()
