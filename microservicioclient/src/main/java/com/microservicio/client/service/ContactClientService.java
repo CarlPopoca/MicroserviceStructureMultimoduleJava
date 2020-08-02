@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.client.RestTemplate;
 
 import com.microservicio.dto.ContactDto;
-//import com.microservicio.dto.ContactDto;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 @ConfigurationProperties(prefix="microservicio.contact")
@@ -31,17 +30,9 @@ public class ContactClientService {
 	//En caso de que se suceda un error se controlara se ejecuta el método retrieveFallbackfindAll para controlar el resultado esperado
     @HystrixCommand(fallbackMethod="retrieveFallbackfindAll")
 	public  List<ContactDto> findAll() {
-	
-		 logger.debug("ContactClientService::ENTRO");
 		List<ContactDto> getList;
-		/*ContactDto[] forNow = restTemplate.getForObject(findAllUrl, ContactDto[].class);
-	    getList= Arrays.asList(forNow);*/
-		 //ResponseEntity<List<ContactDto>> response = restTemplate.exchange(findAllUrl, HttpMethod.GET, null, new ParameterizedTypeReference<List<ContactDto>>() {});
 		ResponseEntity<List<ContactDto>> response = restTemplate.exchange(findAllUrl, HttpMethod.GET, null, new ParameterizedTypeReference<List<ContactDto>>() {});
-		 logger.debug("ContactClientService::PASO");
 		getList = response.getBody();
-		
-	    logger.debug("ContactClientService::PASO3");
 		return getList;
 	}
 	
