@@ -1,0 +1,25 @@
+#Configuration for failfast=false
+
+# HTTP Server
+server:
+  port: 2222   # HTTP port
+  
+# Spring properties
+spring:  
+  application:
+    name: microservicioclient
+       
+logging:
+  file: logs/${spring.application.name}.log
+  level:
+    com.netflix.discovery: 'OFF'
+    org.springframework.cloud: 'INFO'
+    org.springframework.web: 'INFO'
+    com.microservicio: 'DEBUG'
+
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
