@@ -30,6 +30,7 @@ public class ContactClientService {
 	//En caso de que se suceda un error se controlara se ejecuta el método retrieveFallbackfindAll para controlar el resultado esperado
     @HystrixCommand(fallbackMethod="retrieveFallbackfindAll")
 	public  List<ContactDto> findAll() {
+    	logger.debug("ContactClientService::findAll");
 		List<ContactDto> getList;
 		ResponseEntity<List<ContactDto>> response = restTemplate.exchange(findAllUrl, HttpMethod.GET, null, new ParameterizedTypeReference<List<ContactDto>>() {});
 		getList = response.getBody();
