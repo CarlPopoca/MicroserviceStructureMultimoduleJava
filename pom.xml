@@ -14,6 +14,7 @@
   	<module>domain</module>
   	<module>service</module>
   	<module>microservicioclient</module>
+  	<module>admin-server</module>
   </modules>
   
    <properties>
@@ -21,7 +22,6 @@
    		<spring.cloud.version>Hoxton.SR6</spring.cloud.version>
    		<swagger.version>2.9.2</swagger.version>
    		<javax.version>2.2.1</javax.version>
-   		<javax.servlet.api>4.0.1</javax.servlet.api>
    		<java.version>1.8</java.version>
    </properties>
 

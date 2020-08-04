@@ -10,8 +10,7 @@
   
   <properties>
 		<java.version>1.8</java.version>
-		<eureka.version>2.2.3.RELEASE</eureka.version>
-		<spring.cloud.config.client.version>2.2.3.RELEASE</spring.cloud.config.client.version>
+		<spring.boot.admin.version>2.2.3</spring.boot.admin.version>
   </properties>
 	
   <dependencies>
@@ -55,7 +54,12 @@
 		<dependency>  
 		    <groupId>io.springfox</groupId>
 		    <artifactId>springfox-swagger2</artifactId>
-		</dependency> 
+		</dependency>
+		<dependency>
+		   <groupId>de.codecentric</groupId>
+		   <artifactId>spring-boot-admin-starter-client</artifactId>
+		   <version>${spring.boot.admin.version}</version>
+	   </dependency>
 
   </dependencies>
   

@@ -8,6 +8,10 @@ server:
 spring:  
   application:
     name: microservicioclient
+  boot:
+    admin:
+      client:
+        url: http://localhost:9999
        
 logging:
   file: logs/${spring.application.name}.log

@@ -3,7 +3,13 @@
 # HTTP Server
 server:
   port: ${PORT:8761}   # HTTP port
-  
+
+spring:  
+  boot:
+    admin:
+      client:
+        url: http://localhost:9999    
+          
 logging:
   file: logs/${spring.application.name}.log
   level:

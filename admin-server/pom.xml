@@ -5,40 +5,40 @@
     <artifactId>parentmicroservicio</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>eureka-server</artifactId>
-  <name>eureka-server</name>
-  <description>Servidor Eureka</description>
+  <artifactId>admin-server</artifactId>
+  <name>admin-server</name>
   
    <properties>
-		<java.version>1.8</java.version>
-		<spring.boot.admin.version>2.2.3</spring.boot.admin.version>
-  </properties>
-  
-	<dependencies>
+   		<java.version>1.8</java.version>
+   		<spring.boot.admin.version>2.2.3</spring.boot.admin.version>
+   </properties>
+   <dependencies>
+   		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-config-client</artifactId>
+		</dependency>
+   		<dependency>
+		    <groupId>de.codecentric</groupId>
+		    <artifactId>spring-boot-admin-server</artifactId>
+		    <version>${spring.boot.admin.version}</version>
+		    
+		</dependency>
+		<dependency>
+		    <groupId>de.codecentric</groupId>
+		    <artifactId>spring-boot-admin-server-ui</artifactId>
+		    <version>${spring.boot.admin.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-undertow</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-config-client</artifactId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-		<dependency>
-		   <groupId>de.codecentric</groupId>
-		   <artifactId>spring-boot-admin-starter-client</artifactId>
-		   <version>${spring.boot.admin.version}</version>
-	    </dependency>
-	</dependencies>
-	
-	  <build>
+   </dependencies>
+  <build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -61,5 +61,4 @@
 	      	</plugin>
 		</plugins>
 	</build>
-
 </project>
