@@ -18,6 +18,8 @@ spring:
     admin:
       client:
         url: http://localhost:9999
+        username: admin
+        password: admin
     
 logging:  
   file: logs/${spring.application.name}.log
