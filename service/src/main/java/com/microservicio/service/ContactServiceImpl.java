@@ -13,6 +13,7 @@ import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.modelmapper.ModelMapper;
 
 //Se debe agregar la anotación Component para que el @ComponentScan la reconozca
 
@@ -20,38 +21,49 @@ import org.slf4j.LoggerFactory;
 public class ContactServiceImpl implements ContactService {
 
 	private static final Logger logger = LoggerFactory.getLogger(ContactServiceImpl.class);
-	  
+
 	@Autowired
 	private ContactRepository contactRepository;
+
 	@Override
 	public List<ContactDto> getContact() {
-	
-		 List<ContactDto> lista = new ArrayList<>();
-		 for (Contact contact : contactRepository.findAll()) {
-				lista.add(new ContactDto(contact));
-	        }
-		 logger.debug("ContactServiceImpl::findAll");
-			return lista;
+
+		List<ContactDto> lista = new ArrayList<>();
+		for (Contact contact : contactRepository.findAll()) {
+			ModelMapper modelMapper = new ModelMapper();
+			ContactDto contactDto = modelMapper.map(contact, ContactDto.class);
+			lista.add(contactDto);
+			// lista.add(new ContactDto(contact));
+		}
+		logger.debug("ContactServiceImpl::findAll");
+		return lista;
 	}
-	
+
 	@Override
-	public ContactDto findById(String id)
-	{
+	public ContactDto findById(String id) {
 		logger.debug("ContactServiceImpl::findById");
 		Optional<Contact> contact = contactRepository.findById(id);
-		return new ContactDto(contact.get());
+		ModelMapper modelMapper = new ModelMapper();
+		ContactDto contactDto = modelMapper.map(contact.get(), ContactDto.class);
+		return contactDto;
+		// return new ContactDto(contact.get());
 	}
 
 	@Override
 	public void save(ContactDto contact) {
 		logger.debug("ContactServiceImpl::save");
-		contactRepository.save (contact.getEntity());
+		ModelMapper modelMapper = new ModelMapper();
+		Contact contactDto = modelMapper.map(contact, Contact.class);
+		contactRepository.save(contactDto);
+		// contactRepository.save (contact.getEntity());
 	}
 
 	@Override
 	public void delete(ContactDto contact) {
 		logger.debug("ContactServiceImpl::delete");
-		contactRepository.delete(contact.getEntity());
-		
+		ModelMapper modelMapper = new ModelMapper();
+		Contact contactDto = modelMapper.map(contact, Contact.class);
+		contactRepository.delete(contactDto);
+		// contactRepository.delete(contact.getEntity())
 	}
 }

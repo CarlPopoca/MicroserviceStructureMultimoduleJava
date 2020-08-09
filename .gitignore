@@ -3,10 +3,11 @@ target/
 configserver/target/
 domain/target/
 eureka-server/target/
-repository/target
-service/target
+repository/target/
+service/target/
 microservicio/target/
-microservicioclient/target
+microservicioclient/target/
+edge-server/target/
 
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/

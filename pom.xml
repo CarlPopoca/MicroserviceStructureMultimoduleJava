@@ -16,6 +16,7 @@
   	<module>microservicioclient</module>
   	<module>admin-server</module>
   	<module>edge-server</module>
+  	<module>dto</module>
   </modules>
   
    <properties>

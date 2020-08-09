@@ -1,8 +1,9 @@
 package com.microservicio.dto;
+
 import java.math.BigInteger;
-import com.microservicio.model.Contact;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+//import com.microservicio.model.Contact;
 
 @ApiModel(value="ContactDto", description="request data")
 public class ContactDto {
@@ -15,7 +16,7 @@ public class ContactDto {
 	{
 		super();
 	}
-
+	
 	public ContactDto(String id, String name, String gender, BigInteger mobile) {
 		super();
 		this.id = id;
@@ -25,7 +26,7 @@ public class ContactDto {
 	}
 	
 	
-	public ContactDto(Contact entity) {
+	/*public ContactDto(Contact entity) {
 		this.id = entity.getId();
 		this.name = entity.getName();
 		this.gender = entity.getGender();
@@ -41,7 +42,7 @@ public class ContactDto {
 		entity.setMobile(this.mobile);
 		
 		return entity;
-	}
+	}*/
 	
 	@ApiModelProperty(required=true, notes="The id contact")
 	public String getId() {

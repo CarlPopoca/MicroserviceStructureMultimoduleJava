@@ -5,50 +5,25 @@
     <artifactId>parentmicroservicio</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>service</artifactId>
-  <name>service</name>
+  <artifactId>dto</artifactId>
+  <name>dto</name>
   <properties>
 		<java.version>1.8</java.version>
-		<modelmapper.version>2.3.8</modelmapper.version>
   </properties>
-  
   <dependencies>
-  	<dependency>
-		<groupId>com.microservicio</groupId>
-		<artifactId>dto</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</dependency>
-  	<dependency>
-  		<groupId>com.microservicio</groupId>
-  		<artifactId>domain</artifactId>
-  		<version>0.0.1-SNAPSHOT</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>com.microservicio</groupId>
-  		<artifactId>repository</artifactId>
-  		<version>0.0.1-SNAPSHOT</version>
-  	</dependency>
-	<dependency>
-    		<groupId>org.springframework.data</groupId>
-    		<artifactId>spring-data-jpa</artifactId>
-	</dependency>
-   <!-- Librerias de Swagger -->
-   <dependency>  
+  
+     <dependency>  
 	    <groupId>io.springfox</groupId>
 	    <artifactId>springfox-swagger-ui</artifactId>
 	</dependency>  
+	
 	<dependency>  
 	    <groupId>io.springfox</groupId>
 	    <artifactId>springfox-swagger2</artifactId>
-	</dependency>
-
-	<dependency>
-	     <groupId>org.modelmapper</groupId>
-	     <artifactId>modelmapper</artifactId>
-	     <version>${modelmapper.version}</version>
-	</dependency>
+	</dependency> 
+	
   </dependencies>
-  <build>
+    <build>
 		<plugins>
 			 <plugin>
 		        <groupId>org.apache.maven.plugins</groupId>
