@@ -5,61 +5,41 @@
     <artifactId>parentmicroservicio</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>admin-server</artifactId>
-  <name>admin-server</name>
-  
-   <properties>
-   		<java.version>1.8</java.version>
-   		<spring-boot-admin.version>2.2.3</spring-boot-admin.version>
-   </properties>
-   <dependencies>
-   		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-config-client</artifactId>
-		</dependency>
-		<dependency>
+  <artifactId>edge-server</artifactId>
+  <name>edge-server</name>
+    <properties>
+		<java.version>1.8</java.version>
+		<spring-boot-admin.version>2.2.3</spring-boot-admin.version>
+	</properties>
+	
+  	<dependencies>
+  	 	<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-undertow</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-config-client</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-zuul</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>de.codecentric</groupId>
-			<artifactId>spring-boot-admin-starter-server</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-mail</artifactId>
-		</dependency>	
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
-   </dependencies>
-   
-  	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>de.codecentric</groupId>
-				<artifactId>spring-boot-admin-dependencies</artifactId>
-				<version>${spring-boot-admin.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
-	
-  <build>
+		   <groupId>de.codecentric</groupId>
+		   <artifactId>spring-boot-admin-starter-client</artifactId>
+		   <version>${spring-boot-admin.version}</version>
+	    </dependency>	
+    </dependencies>
+    <build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
